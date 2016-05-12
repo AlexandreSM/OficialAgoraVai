@@ -32,12 +32,12 @@ public class EmpresaDAO {
 		return codigoRetorno;
 	}
 	
-	public int exclui (String snpj) {
+	public int exclui (String cnpj) {
 		java.sql.PreparedStatement ps;
 		int codigoretorno = 0;
 		try (Connection conn = new FabricaDeConexoes().getConnection()) {
 			ps= conn.prepareStatement ("delete from empresa where cnpj = ?");
-			ps.setString(1, snpj);
+			ps.setString(1, cnpj);
 			codigoretorno = ps.executeUpdate();
 			}
 		catch (SQLException e){
